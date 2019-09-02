@@ -12,7 +12,7 @@ def addItem():
     item=Item(Restaurant_Id=restaurant.Restaurant_Id,Item_Name=item_name,Price=price)
     db.session.add(item)
     db.session.commit()
-    return "Item added" 
+    return "Item added"
 
 if __name__ == "__main__":
     app.run(port=5003, debug=True)

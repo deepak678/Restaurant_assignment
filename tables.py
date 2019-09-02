@@ -9,6 +9,7 @@ class Restaurant(db.Model):
     Booth = db.Column(db.Integer)
     Couple = db.Column(db.Integer)
     Family = db.Column(db.Integer)
+    Base_Table_Charges=db.Column(db.Integer)
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -44,3 +45,13 @@ class Item(db.Model):
     restaurant_table=db.relationship('Restaurant')
     Item_Name=db.Column(db.Text)
     Price=db.Column(db.REAL)
+
+class Transaction(db.Model):
+    __tablename__ = 'Transaction'
+    Transaction_Id=db.Column(db.Integer, primary_key = True)
+    User_Id = db.Column(db.Integer, db.ForeignKey('users.User_Id'))
+    user_table=db.relationship('User')
+    Restaurant_Id = db.Column(db.Integer, db.ForeignKey('Restaurant.Restaurant_Id'))
+    restaurant_table=db.relationship('Restaurant')
+    Total=db.Column(db.REAL)
+

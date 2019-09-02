@@ -1,6 +1,7 @@
 from app import app,db
 from tables import User,Restaurant,Booking
 from flask import request
+import smtplib 
 
 #to list all the restaurants available in our system
 @app.route('/api/Restaurants')
@@ -53,6 +54,7 @@ def book_a_table():
     #adding new record and commiting it.
     db.session.add(booking)
     db.session.commit()
+    
     return "Booking Confirmed"
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+        app.run(port=5001, debug=True)
