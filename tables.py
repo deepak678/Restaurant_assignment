@@ -37,6 +37,7 @@ class Booking(db.Model):
     restaurant_table=db.relationship('Restaurant')
     Table_Type=db.Column(db.String(32))
     Booking_Date=db.Column(db.Text)
+    Booking_status=db.Column(db.Boolean)
 
 class Item(db.Model):
     __tablename__='Item'
